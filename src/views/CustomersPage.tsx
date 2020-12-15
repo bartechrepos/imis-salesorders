@@ -316,76 +316,12 @@ export default function CustomersPage() {
           اضافة عميل جديد
         </Button>
       </div>
-      <Table columns={columns} dataSource={clientsState} bordered scroll={{x: true}} />
+      <Table
+        columns={columns}
+        dataSource={clientsState}
+        bordered
+        scroll={{ x: true }}
+      />
     </div>
   );
 }
-
-// {
-//   title: 'العميل',
-//   key: 'client',
-//   dataIndex: 'client',
-//   render: (
-//     client: {
-//       key: string;
-//       clientNo: string;
-//       clientName: string;
-//       companyName: string;
-//     }[]
-//   ) => (
-//     <>
-//       {client.map((detail: any) => {
-//         return (
-//           <div key={detail.key}>
-//             <div>
-//               <h3>رقم العميل</h3>
-//               <h3>{detail.clientNo}</h3>
-//             </div>
-//             <div>
-//               <h3>اسم الشركة</h3>
-//               <h3>{detail.companyName}</h3>
-//             </div>
-//             <div>
-//               <h3>اسم العميل</h3>
-//               <h3>{detail.clientName}</h3>
-//             </div>
-//           </div>
-//         );
-//       })}
-//     </>
-//   ),
-// },
-// {
-//   title: 'AccountDetails',
-//   key: 'accountsDetails',
-//   dataIndex: 'accountsDetails',
-//   render: (
-//     accountsDetails: {
-//       key: string;
-//       current: string;
-//       paid: string;
-//       remaining: string;
-//     }[]
-//   ) => (
-//     <>
-//       {accountsDetails.map((detail: any) => {
-//         return (
-//           <div key={detail.key}>
-//             <div>
-//               <h3>رقم العميل</h3>
-//               <h3>{detail.curreny}</h3>
-//             </div>
-//             <div>
-//               <h3>اسم الشركة</h3>
-//               <h3>{detail.paid}</h3>
-//             </div>
-//             <div>
-//               <h3>اسم العميل</h3>
-//               <h3>{detail.remaining}</h3>
-//             </div>
-//           </div>
-//         );
-//       })}
-//     </>
-//   ),
-// },
