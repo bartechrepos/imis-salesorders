@@ -1,23 +1,31 @@
-import { CheckCircleOutlined } from "@ant-design/icons";
-import { Button } from "antd";
-import React, { useState } from "react";
-import { CSSTransition } from "react-transition-group";
-import InstructionsModal from "../components/instructions/InstructionsModal";
+import { CheckCircleOutlined } from '@ant-design/icons';
+import { Button } from 'antd';
+import React, { useState } from 'react';
+import { CSSTransition } from 'react-transition-group';
+import InstructionsModal from '../components/instructions/InstructionsModal';
 
 const projCategories = [
-  { name: "فندق" },
-  { name: "استراحة / شاليه" },
-  { name: "فيلا" },
-  { name: "شقق" },
-  { name: "مكاتب" },
+  { name: 'فندق' },
+  { name: 'استراحة / شاليه' },
+  { name: 'فيلا' },
+  { name: 'شقق' },
+  { name: 'مكاتب' },
 ];
 
 const itemsCategories = [
-  { name: "غرف" },
-  { name: "جناح" },
-  { name: "استقبال" },
-  { name: "اثاث مكتبي" },
-  { name: "جلوس" },
+  { name: 'غرف' },
+  { name: 'جناح' },
+  { name: 'استقبال' },
+  { name: 'اثاث مكتبي' },
+  { name: 'جلوس' },
+];
+const itemsSubCategories = [
+  { name: 'دولاب' },
+  { name: 'سرير' },
+  { name: 'تسريحة' },
+  { name: 'كومود' },
+  { name: 'شناطة' },
+  { name: 'ترابيزة' },
 ];
 
 const SecondStep = ({
@@ -29,7 +37,7 @@ const SecondStep = ({
 }) => {
   return (
     <>
-      <div style={{ marginTop: "2em" }}>
+      <div style={{ marginTop: '2em' }}>
         <h1>
           <span className="h-step">2</span> اختر نوع المنتجات
         </h1>
@@ -38,23 +46,23 @@ const SecondStep = ({
           {itemsCategories.map((item, key) => (
             <Button
               style={{
-                padding: ".25em 1em 1.75em 1em",
-                height: "2em",
-                margin: ".5em",
-                color: "white",
-                backgroundColor: "#29B8B8",
-                fontFamily: "Cairo",
-                fontSize: "1.3em",
-                fontWeight: "bold",
-                borderRadius: ".25em",
-                border: key === selectedCategoryKey ? ".1em solid #FFEB3B" : "",
+                padding: '.25em 1em 1.75em 1em',
+                height: '2em',
+                margin: '.5em',
+                color: 'white',
+                backgroundColor: '#29B8B8',
+                fontFamily: 'Cairo',
+                fontSize: '1.3em',
+                fontWeight: 'bold',
+                borderRadius: '.25em',
+                border: key === selectedCategoryKey ? '.1em solid #FFEB3B' : '',
               }}
               onClick={() => {
                 onSelectCategory(key);
               }}
             >
               {key === selectedCategoryKey && (
-                <CheckCircleOutlined style={{ margin: "0 .25em" }} />
+                <CheckCircleOutlined style={{ margin: '0 .25em' }} />
               )}
               {item.name}
             </Button>
@@ -67,39 +75,41 @@ const SecondStep = ({
 
 const ThirdStep = ({
   selectedItemKey,
+  // selectedItemName,
   onSelectItem,
 }: {
   selectedItemKey: number;
-  onSelectItem: (key: number) => void;
+  // selectedItemName: string;
+  onSelectItem: (key: number, name: string) => void;
 }) => {
   return (
     <>
-      <div style={{ marginTop: "2em" }}>
+      <div style={{ marginTop: '2em' }}>
         <h1>
           <span className="h-step">3</span> اختر المنتجات
         </h1>
         <hr />
         <div>
-          {itemsCategories.map((item, key) => (
+          {itemsSubCategories.map((item, key) => (
             <Button
               style={{
-                padding: ".25em 1em 1.75em 1em",
-                height: "2em",
-                margin: ".5em",
-                color: "white",
-                backgroundColor: "#787575",
-                fontFamily: "Cairo",
-                fontSize: "1.3em",
-                fontWeight: "bold",
-                borderRadius: ".25em",
-                border: key === selectedItemKey ? ".1em solid #FFEB3B" : "",
+                padding: '.25em 1em 1.75em 1em',
+                height: '2em',
+                margin: '.5em',
+                color: 'white',
+                backgroundColor: '#787575',
+                fontFamily: 'Cairo',
+                fontSize: '1.3em',
+                fontWeight: 'bold',
+                borderRadius: '.25em',
+                border: key === selectedItemKey ? '.1em solid #FFEB3B' : '',
               }}
               onClick={() => {
-                onSelectItem(key);
+                onSelectItem(key, item.name);
               }}
             >
               {key === selectedItemKey && (
-                <CheckCircleOutlined style={{ margin: "0 .25em" }} />
+                <CheckCircleOutlined style={{ margin: '0 .25em' }} />
               )}
               {item.name}
             </Button>
@@ -114,6 +124,7 @@ export default function InstructionsPage() {
   const [selectedCatKey, setSelectedCatKey] = useState(-1);
   const [selectedItemKey, setSelectedItemKey] = useState(-1);
   const [modalOpen, setModalOpen] = useState(false);
+  const [selectedItemName, setSelectedItemName] = useState('');
   return (
     <>
       <h1>
@@ -126,16 +137,16 @@ export default function InstructionsPage() {
           <Button
             key={key}
             style={{
-              padding: ".25em 1em 1.7em 1em",
-              height: "1.75em",
-              margin: ".5em",
-              color: "white",
-              backgroundColor: "#625EF7",
-              fontFamily: "Cairo",
-              fontSize: "1.3em",
-              fontWeight: "bold",
-              borderRadius: ".25em",
-              border: key === selectedProjKey ? ".1em solid #FFEB3B" : "",
+              padding: '.25em 1em 1.7em 1em',
+              height: '1.75em',
+              margin: '.5em',
+              color: 'white',
+              backgroundColor: '#625EF7',
+              fontFamily: 'Cairo',
+              fontSize: '1.3em',
+              fontWeight: 'bold',
+              borderRadius: '.25em',
+              border: key === selectedProjKey ? '.1em solid #FFEB3B' : '',
             }}
             onClick={() => {
               if (key !== selectedProjKey) setSelectedProjKey(key);
@@ -143,7 +154,7 @@ export default function InstructionsPage() {
             }}
           >
             {key === selectedProjKey && (
-              <CheckCircleOutlined style={{ margin: "0 .5em" }} />
+              <CheckCircleOutlined style={{ margin: '0 .5em' }} />
             )}
             {item.name}
           </Button>
@@ -168,8 +179,9 @@ export default function InstructionsPage() {
         <>
           {selectedCatKey > -1 && selectedProjKey > -1 && (
             <ThirdStep
-              onSelectItem={(key) => {
+              onSelectItem={(key, name) => {
                 setSelectedItemKey(key);
+                setSelectedItemName(name);
                 setModalOpen(true);
               }}
               selectedItemKey={selectedItemKey}
@@ -177,11 +189,14 @@ export default function InstructionsPage() {
           )}
         </>
       </CSSTransition>
-      <InstructionsModal
-        onSave={() => {}}
-        visible={modalOpen}
-        closeMe={() => setModalOpen(false)}
-      />
+      {modalOpen && (
+        <InstructionsModal
+          onSave={() => {}}
+          visible={modalOpen}
+          title={selectedItemName}
+          closeMe={() => setModalOpen(false)}
+        />
+      )}
     </>
   );
 }

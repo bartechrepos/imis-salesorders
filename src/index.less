@@ -381,3 +381,68 @@ h6 {
     }
   }
 }
+
+// instructions page
+
+// modal
+.instructions-modal {
+
+  .custom-slider-btn {
+    background: transparent;
+    border: none;
+    position: absolute;
+    top: 40%;
+    z-index: 999;
+
+    &.left-btn {
+      left: -40px;
+
+    }
+
+    &.right-btn {
+      right: -30px;
+
+    }
+
+    .anticon {
+      svg {
+        background: #707070;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        color: #fff;
+        padding: 7px;
+      }
+    }
+  }
+
+  .ant-modal-close {
+    right: auto;
+    left: 0;
+    color: #B20022;
+
+    .ant-modal-close-x {
+      font-size: 30px;
+    }
+  }
+
+  .ant-modal-header {
+    background-color: #f3f3f3;
+
+    .ant-modal-title {
+      font-family: 'Cairo';
+      font-size: 22px;
+      color: #B20022;
+
+      &::after {
+        content: '';
+        position: absolute;
+        background-color: #B20022;
+        width: 7%;
+        height: 5px;
+        bottom: -7px;
+        right: 0;
+      }
+    }
+  }
+}
