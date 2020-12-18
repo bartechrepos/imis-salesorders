@@ -3,35 +3,45 @@ import {
   FileDoneOutlined,
   HomeFilled,
   TableOutlined,
-} from "@ant-design/icons";
-import React from "react";
-import { useLocation } from "react-router-dom";
-import { CustomersIcon, SalesIcon } from "./icons";
+  SnippetsOutlined,
+  HighlightOutlined,
+} from '@ant-design/icons';
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+import { CustomersIcon, SalesIcon } from './icons';
 
 const headInfoObj = {
-  "/home": {
-    title: "الرئيسية",
+  '/home': {
+    title: 'الرئيسية',
     icon: <HomeFilled />,
   },
-  "/customers": {
-    title: "ادارة العملاء",
+  '/customers': {
+    title: 'ادارة العملاء',
     icon: <CustomersIcon />,
   },
-  "/price-offers": {
-    title: "ادارة المبيعات",
+  '/price-offers': {
+    title: 'ادارة المبيعات',
     icon: <SalesIcon />,
   },
-  "/sales-orders-table": {
-    title: "جدول الطلبيات",
+  '/sales-orders-table': {
+    title: 'جدول الطلبيات',
     icon: <TableOutlined />,
   },
-  "/instructions": {
-    title: "تعليمات",
+  '/instructions': {
+    title: 'تعليمات',
     icon: <FileDoneOutlined />,
   },
-  "/time-tracking": {
-    title: "تتبع الوقت",
+  '/time-tracking': {
+    title: 'تتبع الوقت',
     icon: <ClockCircleOutlined />,
+  },
+  '/work-centers-mangers': {
+    title: 'استعراض مراكز العمل',
+    icon: <SnippetsOutlined />,
+  },
+  '/work-centers-employees': {
+    title: 'مراكز العمل',
+    icon: <HighlightOutlined />,
   },
 } as any;
 export default function PagesHeader() {
@@ -40,7 +50,7 @@ export default function PagesHeader() {
   return (
     <div>
       {headInfoObj[location.pathname]?.icon}
-      <h1 style={{ display: "inline-block", marginRight: ".25em" }}>
+      <h1 style={{ display: 'inline-block', marginRight: '.25em' }}>
         {headInfoObj[location.pathname]?.title}
       </h1>
     </div>
