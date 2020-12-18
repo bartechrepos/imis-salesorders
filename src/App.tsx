@@ -3,36 +3,38 @@ import {
   MenuUnfoldOutlined,
   NotificationFilled,
   SettingFilled,
-} from "@ant-design/icons";
-import { Avatar, Button, Col, Layout, Row } from "antd";
-import Title from "antd/lib/typography/Title";
-import React, { useContext, useEffect, useState } from "react";
+} from '@ant-design/icons';
+import { Avatar, Button, Col, Layout, Row } from 'antd';
+import Title from 'antd/lib/typography/Title';
+import React, { useContext, useEffect, useState } from 'react';
 import {
   BrowserRouter as Router,
   Link,
   Redirect,
   Route,
-} from "react-router-dom";
-import { AnimatedSwitch, spring } from "react-router-transition";
-import { CSSTransition } from "react-transition-group";
-import logo from "./assets/images/alaqeel-logo.png";
-import logoCircle from "./assets/images/circle-logo.png";
-import PagesHeader from "./components/PagesHeader";
-import SideMenu from "./components/SideMenu";
-import { AppContext } from "./context/AppContextProvider";
-import Footer from "./layout/Footer";
-import Header from "./layout/Header";
-import CartPage from "./views/CartPage";
-import CustomersPage from "./views/CustomersPage";
-import HomePage from "./views/HomePage";
-import InstructionsPage from "./views/InstructionsPage";
-import LoginPage from "./views/LoginPage";
-import PriceOfferCartPage from "./views/PriceOfferCartPage";
-import PriceOffers from "./views/PriceOffers";
-import ProductPage from "./views/ProductPage";
-import SalesOrdersPage from "./views/SalesOrdersPage";
-import SalesOrdersTable from "./views/SalesOrdersTable";
-import TimeTrackingPage from "./views/TimeTrackingPage";
+} from 'react-router-dom';
+import { AnimatedSwitch, spring } from 'react-router-transition';
+import { CSSTransition } from 'react-transition-group';
+import logo from './assets/images/alaqeel-logo.png';
+import logoCircle from './assets/images/circle-logo.png';
+import PagesHeader from './components/PagesHeader';
+import SideMenu from './components/SideMenu';
+import { AppContext } from './context/AppContextProvider';
+import Footer from './layout/Footer';
+import Header from './layout/Header';
+import CartPage from './views/CartPage';
+import CustomersPage from './views/CustomersPage';
+import HomePage from './views/HomePage';
+import InstructionsPage from './views/InstructionsPage';
+import LoginPage from './views/LoginPage';
+import PriceOfferCartPage from './views/PriceOfferCartPage';
+import PriceOffers from './views/PriceOffers';
+import ProductPage from './views/ProductPage';
+import SalesOrdersPage from './views/SalesOrdersPage';
+import SalesOrdersTable from './views/SalesOrdersTable';
+import TimeTrackingPage from './views/TimeTrackingPage';
+import WorkCenters from './views/WorkCenters';
+import VieWorkCenters from './views/VieWorkCenters';
 
 function mapStyles(styles: any) {
   return {
@@ -82,7 +84,7 @@ export default function App() {
 
   useEffect(() => {
     setIsLoggedIn(userLoggedIn);
-    console.log("%c Mo2Log userLoggedIn ", "background: #bada55", userLoggedIn);
+    console.log('%c Mo2Log userLoggedIn ', 'background: #bada55', userLoggedIn);
   }, [userLoggedIn]);
 
   useEffect(() => {
@@ -99,13 +101,13 @@ export default function App() {
             <Layout.Sider
               collapsed={collapsed}
               style={{
-                background: "#FFFFFF",
-                borderRadius: "20px 0px 0px 0px",
+                background: '#FFFFFF',
+                borderRadius: '20px 0px 0px 0px',
               }}
             >
-              <div style={{ width: "100%" }}>
+              <div style={{ width: '100%' }}>
                 <div
-                  style={{ margin: "20px 15px" }}
+                  style={{ margin: '20px 15px' }}
                   onClick={() => setRefresh(1 + refresh)}
                 >
                   <Link to="/">
@@ -114,7 +116,7 @@ export default function App() {
                         src={collapsed ? logoCircle : logo}
                         alt=""
                         style={{
-                          maxWidth: "100%",
+                          maxWidth: '100%',
                         }}
                       />
                     </CSSTransition>
@@ -130,7 +132,7 @@ export default function App() {
                     collapsed ? MenuUnfoldOutlined : MenuFoldOutlined
                   )}
                 </Button>
-                <div style={{ textAlign: "center" }}>
+                <div style={{ textAlign: 'center' }}>
                   <Avatar
                     size={collapsed ? 40 : 80}
                     src="https://i.imgur.com/W7WjRNt.png"
@@ -138,9 +140,9 @@ export default function App() {
                   {!collapsed && (
                     <Title
                       style={{
-                        fontSize: "1em",
-                        color: "#414141",
-                        marginTop: ".5em",
+                        fontSize: '1em',
+                        color: '#414141',
+                        marginTop: '.5em',
                       }}
                     >
                       محمد احمد عبدالعزيز
@@ -161,35 +163,35 @@ export default function App() {
             {!showSider && (
               <Layout.Header
                 style={{
-                  backgroundColor: "white",
-                  height: "120px",
-                  paddingTop: "10px",
+                  backgroundColor: 'white',
+                  height: '120px',
+                  paddingTop: '10px',
                 }}
               >
                 <Header />
               </Layout.Header>
             )}
             <Layout.Content className="layout-content">
-              <Row style={{ margin: "1em 0" }}>
+              <Row style={{ margin: '1em 0' }}>
                 <Col span={18}>
                   <PagesHeader />
                 </Col>
                 <Col span={6}>
                   <NotificationFilled
                     className="primary-icon"
-                    style={{ fontSize: "1.4em", margin: ".25em" }}
+                    style={{ fontSize: '1.4em', margin: '.25em' }}
                   />
                   <SettingFilled
                     className="primary-icon"
-                    style={{ fontSize: "1.4em", margin: ".25em" }}
+                    style={{ fontSize: '1.4em', margin: '.25em' }}
                   />
                 </Col>
               </Row>
               <div
                 style={{
-                  backgroundColor: "white",
-                  padding: "1em",
-                  marginTop: ".5em",
+                  backgroundColor: 'white',
+                  padding: '1em',
+                  marginTop: '.5em',
                 }}
               >
                 <AnimatedSwitch
@@ -223,6 +225,14 @@ export default function App() {
 
                   <Route path="/login" component={LoginPage} />
                   <Route path="/customers" component={CustomersPage} />
+                  <Route
+                    path="/work-centers-mangers"
+                    component={VieWorkCenters}
+                  />
+                  <Route
+                    path="/work-centers-employees"
+                    component={WorkCenters}
+                  />
                 </AnimatedSwitch>
               </div>
             </Layout.Content>

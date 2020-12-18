@@ -313,7 +313,7 @@ export default function CustomersPage() {
       />
       <div className="centered">
         <Button type="primary" onClick={() => setModalOpen(true)}>
-          اضافة عميل جديد
+          إضافة عميل جديد
         </Button>
       </div>
       <Table
