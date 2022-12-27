@@ -6,17 +6,17 @@ import {
   TableOutlined,
   SnippetsOutlined,
   HighlightOutlined,
-} from '@ant-design/icons';
-import { Menu } from 'antd';
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { CustomersIcon, DrawIcon, SalesIcon } from './icons';
+} from "@ant-design/icons";
+import { Menu } from "antd";
+import React from "react";
+import { Link } from "react-router-dom";
+import { CustomersIcon, DrawIcon, SalesIcon } from "./icons";
 
 const styles = {
   menuItemStyle: {
-    textAlign: 'right',
-    fontFamily: 'Cairo',
-    fontSize: '1.1em',
+    textAlign: "right",
+    fontFamily: "Cairo",
+    fontSize: "1.1em",
   } as React.CSSProperties,
 };
 
@@ -29,13 +29,13 @@ export default function SideMenu({
 }) {
   return (
     <>
-      <Menu defaultSelectedKeys={['1']} mode="inline">
+      <Menu defaultSelectedKeys={["1"]} mode="inline">
         <Menu.Item
           key="1"
           icon={
             <HomeFilled
               className="menu-icon"
-              style={{ margin: !collapsed ? '0 10px' : '' }}
+              style={{ margin: !collapsed ? "0 10px" : "" }}
             />
           }
           style={styles.menuItemStyle}
@@ -47,7 +47,7 @@ export default function SideMenu({
           icon={
             <CustomersIcon
               className="menu-icon"
-              style={{ margin: !collapsed ? '0 10px' : '' }}
+              style={{ margin: !collapsed ? "0 10px" : "" }}
             />
           }
           style={styles.menuItemStyle}
@@ -56,7 +56,7 @@ export default function SideMenu({
         </Menu.Item>
         <Menu.Item
           key="3"
-          icon={<SalesIcon style={{ margin: !collapsed ? '0 10px' : '' }} />}
+          icon={<SalesIcon style={{ margin: !collapsed ? "0 10px" : "" }} />}
           style={styles.menuItemStyle}
         >
           <Link to="price-offers">أدارة المبيعات</Link>
@@ -66,7 +66,7 @@ export default function SideMenu({
           icon={
             <DrawIcon
               className="menu-icon"
-              style={{ margin: !collapsed ? '0 10px' : '' }}
+              style={{ margin: !collapsed ? "0 10px" : "" }}
             />
           }
           style={styles.menuItemStyle}
@@ -79,7 +79,7 @@ export default function SideMenu({
           icon={
             <TableOutlined
               className="menu-icon"
-              style={{ margin: !collapsed ? '0 10px' : '' }}
+              style={{ margin: !collapsed ? "0 10px" : "" }}
             />
           }
           style={styles.menuItemStyle}
@@ -92,7 +92,7 @@ export default function SideMenu({
           icon={
             <FileDoneOutlined
               className="menu-icon"
-              style={{ margin: !collapsed ? '0 10px' : '' }}
+              style={{ margin: !collapsed ? "0 10px" : "" }}
             />
           }
           style={styles.menuItemStyle}
@@ -105,7 +105,7 @@ export default function SideMenu({
           icon={
             <ClockCircleOutlined
               className="menu-icon"
-              style={{ margin: !collapsed ? '0 10px' : '' }}
+              style={{ margin: !collapsed ? "0 10px" : "" }}
             />
           }
           style={styles.menuItemStyle}
@@ -117,19 +117,19 @@ export default function SideMenu({
           icon={
             <HighlightOutlined
               className="menu-icon"
-              style={{ margin: !collapsed ? '0 10px' : '' }}
+              style={{ margin: !collapsed ? "0 10px" : "" }}
             />
           }
           style={styles.menuItemStyle}
         >
-          <Link to="/work-centers-mangers">استعراض مراكز العمل</Link>
+          <Link to="/work-centers-mangers"> التصنيع</Link>
         </Menu.Item>
         <Menu.Item
           key="9"
           icon={
             <SnippetsOutlined
               className="menu-icon"
-              style={{ margin: !collapsed ? '0 10px' : '' }}
+              style={{ margin: !collapsed ? "0 10px" : "" }}
             />
           }
           style={styles.menuItemStyle}
@@ -141,7 +141,7 @@ export default function SideMenu({
           icon={
             <LogoutOutlined
               className="menu-icon"
-              style={{ margin: !collapsed ? '0 10px' : '' }}
+              style={{ margin: !collapsed ? "0 10px" : "" }}
             />
           }
           onClick={() => {
